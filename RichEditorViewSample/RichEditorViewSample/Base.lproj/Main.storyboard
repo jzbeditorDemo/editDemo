@@ -8,11 +8,6 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <customFonts key="customFonts">
-        <array key="CourierNew.ttf">
-            <string>CourierNewPSMT</string>
-        </array>
-    </customFonts>
     <scenes>
         <!--Navigation Controller-->
         <scene sceneID="9Mc-Tw-THQ">
@@ -55,7 +50,7 @@
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="FMR-YK-M0h" secondAttribute="bottom" constant="300" id="ogE-bl-ACs"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="RichEditorView - Swift" id="pyE-1e-UBv"/>
+                    <navigationItem key="navigationItem" title="空编辑器" id="pyE-1e-UBv"/>
                     <connections>
                         <outlet property="editorView" destination="FMR-YK-M0h" id="wch-rq-p16"/>
                     </connections>
@@ -64,56 +59,41 @@
             </objects>
             <point key="canvasLocation" x="1169" y="-80"/>
         </scene>
-        <!--RichEditorView ObjC-->
-        <scene sceneID="2eE-8J-Vgg">
+        <!--RichEditorView Swift-->
+        <scene sceneID="0iI-Tl-lG6">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="WoP-qd-WEq" userLabel="RichEditorView ObjC" customClass="ObjCViewController" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="h2i-Y6-LnF" userLabel="RichEditorView Swift" customClass="ViewController" customModule="RichEditorViewSample" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="EJS-xX-Z4N"/>
-                        <viewControllerLayoutGuide type="bottom" id="p2n-03-hDJ"/>
+                        <viewControllerLayoutGuide type="top" id="jgh-sJ-vrh"/>
+                        <viewControllerLayoutGuide type="bottom" id="wT8-5g-e9a"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="EVB-67-r9K">
+                    <view key="view" contentMode="scaleToFill" id="WLi-Gv-aIJ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BVN-33-ljg" customClass="RichEditorView" customModule="RichEditorView">
-                                <rect key="frame" x="0.0" y="64" width="375" height="259"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c5c-b2-A5m" customClass="RichEditorView" customModule="RichEditorView">
+                                <rect key="frame" x="0.0" y="64" width="375" height="303"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="259" id="Ykl-yH-DDw"/>
-                                </constraints>
                             </view>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="HTML Preview" translatesAutoresizingMaskIntoConstraints="NO" id="fau-Ce-Elw">
-                                <rect key="frame" x="0.0" y="325" width="375" height="342"/>
-                                <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="BVN-33-ljg" secondAttribute="trailing" id="4SA-Ud-xC2"/>
-                            <constraint firstItem="fau-Ce-Elw" firstAttribute="leading" secondItem="EVB-67-r9K" secondAttribute="leading" id="5Fu-Zn-gkw"/>
-                            <constraint firstItem="fau-Ce-Elw" firstAttribute="top" secondItem="BVN-33-ljg" secondAttribute="bottom" constant="2" id="9rb-ot-xAq"/>
-                            <constraint firstItem="fau-Ce-Elw" firstAttribute="top" secondItem="BVN-33-ljg" secondAttribute="bottom" constant="2" id="Cmw-fc-uhY"/>
-                            <constraint firstItem="p2n-03-hDJ" firstAttribute="top" secondItem="fau-Ce-Elw" secondAttribute="bottom" id="WGr-dv-m09"/>
-                            <constraint firstItem="BVN-33-ljg" firstAttribute="leading" secondItem="EVB-67-r9K" secondAttribute="leading" id="fGg-jZ-pTv"/>
-                            <constraint firstItem="BVN-33-ljg" firstAttribute="top" secondItem="EJS-xX-Z4N" secondAttribute="bottom" id="vY0-zq-Ior"/>
-                            <constraint firstAttribute="trailing" secondItem="fau-Ce-Elw" secondAttribute="trailing" id="xh9-dd-Gd3"/>
+                            <constraint firstItem="c5c-b2-A5m" firstAttribute="top" secondItem="jgh-sJ-vrh" secondAttribute="bottom" id="4Ph-ij-heK"/>
+                            <constraint firstAttribute="trailing" secondItem="c5c-b2-A5m" secondAttribute="trailing" id="Nei-em-4O9"/>
+                            <constraint firstItem="wT8-5g-e9a" firstAttribute="top" secondItem="c5c-b2-A5m" secondAttribute="bottom" constant="300" id="XOf-2h-8bS"/>
+                            <constraint firstItem="c5c-b2-A5m" firstAttribute="leading" secondItem="WLi-Gv-aIJ" secondAttribute="leading" id="fcA-ZW-Wiv"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="RichEditorView - ObjC" id="yw4-qm-fam"/>
+                    <navigationItem key="navigationItem" title="标题非空编辑器" id="ZK6-78-N0g"/>
                     <connections>
-                        <outlet property="editorView" destination="BVN-33-ljg" id="vUh-Qp-GF2"/>
-                        <outlet property="htmlTextView" destination="fau-Ce-Elw" id="neK-ma-AV0"/>
+                        <outlet property="editorView" destination="c5c-b2-A5m" id="JNm-gT-W9i"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="RJd-Me-Cq6" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="krA-YL-125" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1169" y="666"/>
+            <point key="canvasLocation" x="1169" y="600"/>
         </scene>
-        <!--Use RichEditorView From...-->
+        <!--家长帮编辑器demo-->
         <scene sceneID="dnn-RE-MQ4">
             <objects>
                 <tableViewController id="43h-aY-VrM" sceneMemberID="viewController">
@@ -124,14 +104,14 @@
                         <sections>
                             <tableViewSection id="Jvo-1H-hRS">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="k6r-FS-DZm">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="k6r-FS-DZm">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="k6r-FS-DZm" id="q6X-ql-mmC">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Swift" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8KE-aM-ZGE">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="空编辑器" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8KE-aM-ZGE">
                                                     <rect key="frame" x="8" y="11" width="226" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -141,7 +121,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="BYZ-38-t0r" kind="show" id="vRl-ev-oTq"/>
+                                            <segue destination="BYZ-38-t0r" kind="show" identifier="emptyEditor" id="vRl-ev-oTq"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="YFH-tb-xzU">
@@ -151,7 +131,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Objective-C" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eqo-5S-fvn">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="标题非空" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eqo-5S-fvn">
                                                     <rect key="frame" x="8" y="11" width="226" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -161,7 +141,47 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="WoP-qd-WEq" kind="show" id="dyR-eg-a90"/>
+                                            <segue destination="h2i-Y6-LnF" kind="show" identifier="titleEmptyEditor" id="j9x-P4-tEy"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="rso-3s-Lz0">
+                                        <rect key="frame" x="0.0" y="88" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="rso-3s-Lz0" id="xJf-sj-nDS">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="正文非空" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b1L-5U-NFK">
+                                                    <rect key="frame" x="8" y="11" width="226" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="PG0-bM-j5J" kind="show" identifier="bodyEmptyEditor" id="re9-PS-9Gl"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="kUk-ZI-Bjb">
+                                        <rect key="frame" x="0.0" y="132" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="kUk-ZI-Bjb" id="L7m-5A-8Xt">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="标题和正文非空" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B8n-NH-5Nq">
+                                                    <rect key="frame" x="8" y="11" width="226" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="xVk-qy-FEB" kind="show" identifier="notEmptyEditor" id="CUd-b3-HH0"/>
                                         </connections>
                                     </tableViewCell>
                                 </cells>
@@ -172,11 +192,79 @@
                             <outlet property="delegate" destination="43h-aY-VrM" id="fwy-6i-GKt"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Use RichEditorView From..." id="Nit-a6-dkw"/>
+                    <navigationItem key="navigationItem" title="家长帮编辑器demo" id="Nit-a6-dkw"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="i2o-Jx-yvH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="225.5" y="405.5"/>
+        </scene>
+        <!--RichEditorView Swift-->
+        <scene sceneID="ccY-rK-7Cg">
+            <objects>
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="PG0-bM-j5J" userLabel="RichEditorView Swift" customClass="ViewController" customModule="RichEditorViewSample" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jQT-qd-4Gc"/>
+                        <viewControllerLayoutGuide type="bottom" id="6O4-Qk-S5h"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="AIs-5e-aBw">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c8d-Tk-Eee" customClass="RichEditorView" customModule="RichEditorView">
+                                <rect key="frame" x="0.0" y="64" width="375" height="303"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="c8d-Tk-Eee" firstAttribute="top" secondItem="jQT-qd-4Gc" secondAttribute="bottom" id="06R-4h-pu8"/>
+                            <constraint firstItem="c8d-Tk-Eee" firstAttribute="leading" secondItem="AIs-5e-aBw" secondAttribute="leading" id="b1y-d6-c3e"/>
+                            <constraint firstAttribute="trailing" secondItem="c8d-Tk-Eee" secondAttribute="trailing" id="foz-kb-cTd"/>
+                            <constraint firstItem="6O4-Qk-S5h" firstAttribute="top" secondItem="c8d-Tk-Eee" secondAttribute="bottom" constant="300" id="nBA-X9-Ac2"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="正文非空编辑器" id="tXT-JX-tvD"/>
+                    <connections>
+                        <outlet property="editorView" destination="c8d-Tk-Eee" id="Udg-ZG-Phh"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OCt-Wb-9dm" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1842" y="584"/>
+        </scene>
+        <!--RichEditorView Swift-->
+        <scene sceneID="CiJ-SB-iGN">
+            <objects>
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="xVk-qy-FEB" userLabel="RichEditorView Swift" customClass="ViewController" customModule="RichEditorViewSample" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="5fx-Xn-tLd"/>
+                        <viewControllerLayoutGuide type="bottom" id="sdK-yf-DRZ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="YDM-GA-qWl">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sl0-Sj-tEx" customClass="RichEditorView" customModule="RichEditorView">
+                                <rect key="frame" x="0.0" y="64" width="375" height="303"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="sdK-yf-DRZ" firstAttribute="top" secondItem="sl0-Sj-tEx" secondAttribute="bottom" constant="300" id="0xu-gn-afi"/>
+                            <constraint firstItem="sl0-Sj-tEx" firstAttribute="top" secondItem="5fx-Xn-tLd" secondAttribute="bottom" id="ekU-Cn-bpB"/>
+                            <constraint firstItem="sl0-Sj-tEx" firstAttribute="leading" secondItem="YDM-GA-qWl" secondAttribute="leading" id="f05-eY-BrY"/>
+                            <constraint firstAttribute="trailing" secondItem="sl0-Sj-tEx" secondAttribute="trailing" id="lno-kJ-qnX"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="标题和正文非空编辑器" id="KsZ-cO-Gfw"/>
+                    <connections>
+                        <outlet property="editorView" destination="sl0-Sj-tEx" id="ZJA-Yh-JAC"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="y1n-Vc-7oS" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1865" y="-81"/>
         </scene>
     </scenes>
 </document>

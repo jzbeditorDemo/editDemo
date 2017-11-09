@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../RichEditorView/Classes/RichEditorView.swift"
-            timestampString = "531906223.836738"
+            timestampString = "531909841.121186"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "296"
-            endingLineNumber = "296"
+            startingLineNumber = "308"
+            endingLineNumber = "308"
             landmarkName = "RichEditorView"
             landmarkType = "3">
          </BreakpointContent>
@@ -58,11 +58,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../RichEditorView/Classes/RichEditorView.swift"
-            timestampString = "531906223.837694"
+            timestampString = "531909841.121752"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "392"
-            endingLineNumber = "392"
+            startingLineNumber = "404"
+            endingLineNumber = "404"
             landmarkName = "updateImageProgress(imageId:progress:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -74,11 +74,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../RichEditorView/Classes/RichEditorView.swift"
-            timestampString = "531906223.838229"
+            timestampString = "531909841.122132"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "397"
-            endingLineNumber = "397"
+            startingLineNumber = "409"
+            endingLineNumber = "409"
             landmarkName = "imageUploadSuccess(imageId:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -89,13 +89,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "RichEditorViewSample/ViewController.swift"
-            timestampString = "531906223.838798"
+            filePath = "../RichEditorView/Classes/RichEditorView.swift"
+            timestampString = "531909841.122461"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "217"
-            endingLineNumber = "217"
-            landmarkName = "keyboardWillShowOrHide(aNotification:)"
+            startingLineNumber = "390"
+            endingLineNumber = "390"
+            landmarkName = "titleDisplay()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -106,12 +106,28 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../RichEditorView/Classes/RichEditorView.swift"
-            timestampString = "531906223.839055"
+            timestampString = "531909841.122749"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "524"
-            endingLineNumber = "524"
-            landmarkName = "performCommand(_:)"
+            startingLineNumber = "203"
+            endingLineNumber = "203"
+            landmarkName = "title"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../RichEditorView/Classes/RichEditorView.swift"
+            timestampString = "531909841.123055"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "400"
+            endingLineNumber = "400"
+            landmarkName = "runJS(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

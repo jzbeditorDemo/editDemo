@@ -152,6 +152,18 @@ RE.getHtml = function() {
     return RE.editor.innerHTML;
 };
 
+RE.getTitle = function() {
+    return RE.titleEditor.innerText;
+};
+
+RE.setTitle = function(title) {
+    RE.titleEditor.innerHTML = title;
+    RE.titleEditor.setAttribute("placeholder", '');
+    RE.titleEditor.style.display = '';
+    RE.separatorDiv.style.display = '';
+    RE.titleEditor.focus();
+};
+
 RE.isTitleFocus = function() {
     var isTitleFocus=$("#title").is(":focus");
     return isTitleFocus;

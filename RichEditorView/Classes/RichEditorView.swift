@@ -77,6 +77,8 @@ open class RichEditorView: UIView, UIScrollViewDelegate, UIWebViewDelegate, UIGe
             delegate?.richEditor?(self, contentDidChange: contentHTML)
         }
     }
+    
+    private var titleHTML:String?
 
     /// The internal height of the text being displayed.
     /// Is continually being updated as the text is edited.
@@ -189,6 +191,16 @@ open class RichEditorView: UIView, UIScrollViewDelegate, UIWebViewDelegate, UIGe
             if isEditorLoaded {
                 runJS("RE.setHtml('\(newValue.escaped)');")
             }
+        }
+    }
+    
+    public var title: String {
+        get {
+            return runJS("RE.getTitle();")
+        }
+        set {
+            titleHTML = newValue
+            runJS("RE.setTitle('\(newValue.escaped)');")
         }
     }
 
@@ -507,6 +519,10 @@ open class RichEditorView: UIView, UIScrollViewDelegate, UIWebViewDelegate, UIGe
             // If loading for the first time, we have to set the content HTML to be displayed
             if !isEditorLoaded {
                 isEditorLoaded = true
+                if titleHTML != nil {
+                    title = titleHTML!
+                    titleDisplay()
+                }
                 html = contentHTML
                 isContentEditable = editingEnabledVar
                 placeholder = placeholderText

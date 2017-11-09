@@ -18,6 +18,9 @@ class ViewController: UIViewController {
     fileprivate let webViewInset = UIEdgeInsets(top: 10, left: 0, bottom: 0, right: 0)
 
     @IBOutlet var editorView: RichEditorView!
+    
+    fileprivate var initTitle:String?
+    fileprivate var initBody:String?
 
     lazy var toolbar: RichEditorToolbar = {
         let toolbar = RichEditorToolbar(frame: CGRect(x: 0, y: 0, width: self.view.bounds.width, height: 44))
@@ -27,6 +30,16 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let title = self.navigationItem.title ?? ""
+        if title == "标题非空编辑器" {
+            customTitle()
+        } else if title == "正文非空编辑器" {
+            customBody()
+        } else if title == "标题和正文非空编辑器" {
+            customTitle()
+            customBody()
+        }
         
         editorView.delegate = self
         editorView.inputAccessoryView = toolbar
@@ -38,10 +51,33 @@ class ViewController: UIViewController {
         
         let btn = UIBarButtonItem(title: "内容", style: .plain, target: self, action: #selector(showHTML))
         self.navigationItem.rightBarButtonItem = btn
+        
+        if initTitle != nil {
+            self.editorView.title = self.initTitle!
+        }
+        
+        if initBody != nil {
+            editorView.html = initBody!
+        }
     }
     
     func showHTML() {
         print("😝😝\(editorView.html)")
+    }
+    
+    private func customTitle() {
+        self.initTitle = "标题非空标题非空标题非空标题非空标题非空标题非空标题非空标题非空标题非空"
+    }
+    
+    private func customBody() {
+        self.initBody = "内容测试，爱过你公司房间看电视了蛋糕发生房间里上的f第三方<b>发生发多少 发多少是</b><span style=\"font-size: 14pt;\">‌</span><blockquote>发生发多少分&nbsp;</blockquote><blockquote>都是发多少是的发</blockquote><p><ul><li>哈哈哈哈哈</li><li>哥哥哥哥哥哥</li><li>哈哈哈哈哈哈哈哈哈</li></ul><h3>哈发生的纠纷老师的就看电视了房间快乐发生的发&nbsp;</h3><p><span id=\"91C0624F-D1A3-4FBC-B29E-387339BC2E51\" class=\"img_container\"><img src=\"/Users/superjoo/Library/Developer/CoreSimulator/Devices/D0CEB8F8-2BB4-402E-B289-A3062117C9AE/data/Containers/Data/Application/C1DE1361-F3BF-45E4-A77C-A90787C70AEA/Documents/91C0624F-D1A3-4FBC-B29E-387339BC2E51.jpg\" alt=\"\" id=\"91C0624F-D1A3-4FBC-B29E-387339BC2E51_img\" style=\"opacity: 1;\"></span><br></p><p>飞机上了发飞机上了飞机了飞机上了发了</p><p>房间里上</p><p><br></p><p>飞机开始了</p><p><span id=\"DBDA742F-786C-4ABA-8C74-3E2B61249A48\" class=\"img_container\"><img src=\"/Users/superjoo/Library/Developer/CoreSimulator/Devices/D0CEB8F8-2BB4-402E-B289-A3062117C9AE/data/Containers/Data/Application/C1DE1361-F3BF-45E4-A77C-A90787C70AEA/Documents/DBDA742F-786C-4ABA-8C74-3E2B61249A48.jpg\" alt=\"\" id=\"DBDA742F-786C-4ABA-8C74-3E2B61249A48_img\" style=\"opacity: 1;\"></span><br></p><p><br></p><p>就是发生了飞机上了发发生 end</p><p>end。。。。。</p></p><br>"
+    }
+    
+    func after(_ time:Float,block:@escaping () -> Void) {
+        let dtime = DispatchTime.now() + Double(Int64(Double(time) * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC)
+        DispatchQueue.main.asyncAfter(deadline: dtime) { () -> Void in
+            block()
+        }
     }
 }
 
