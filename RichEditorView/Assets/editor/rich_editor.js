@@ -55,6 +55,21 @@ RE.rangeSelectionExists = function() {
     return false;
 };
 
+RE.stState = null;
+
+window.addEventListener('resize', function() {
+                          clearTimeout(RE.stState);
+                          RE.stState = setTimeout(function() {RE.setScrollTop();}, 800);
+                        });
+
+RE.setScrollTop = function() {
+    var ch = RE.editor.clientHeight;
+    if (document.getSelection() && document.getSelection().focusNode) {
+        var dg = document.getSelection().focusNode.offsetTop || 0;
+        dg - ch > 0 && (RE.editor.scrollTop = dg);
+    }
+}
+
 RE.rangeOrCaretSelectionExists = function() {
     //!! coerces a null to bool
     var sel = document.getSelection();
@@ -84,7 +99,7 @@ RE.editor.addEventListener("blur", function() {
 
 RE.replaceDIVNode = function() {
     var current_selection = $(RE.getSelectedNode());
-    if (current_selection) {
+    if (current_selection && current_selection.prop("tagName")) {
         var t = current_selection.prop("tagName").toLowerCase();
         if (t == 'div') document.execCommand('formatBlock', false, '<p>');
     }
@@ -301,8 +316,9 @@ RE.setLineHeight = function(height) {
     RE.editor.style.lineHeight = height;
 };
 
+
+
 RE.insertImage = function(url, alt,id) {
-    
     var span = document.createElement("span");
     span.id = id;
     span.className = "img_container"
@@ -322,7 +338,7 @@ RE.insertImage = function(url, alt,id) {
     span.appendChild(img);
     span.appendChild(progress);
     
-    RE.insertHTML(span.outerHTML);
+    RE.insertHTML(span.outerHTML + '<br>');
     
 //    RE.insertHTML(img.outerHTML);
     RE.callback("input");
@@ -332,7 +348,7 @@ RE.updateImageProgress = function(prd,id) {
     var progressId = id + "_progress";
     var progress = document.getElementById(progressId)
 //    var progress = $("#" + progressId);
-    console.log(progress)
+//    console.log(progress)
     progress.value = parseFloat(prd);
 };
 
@@ -522,28 +538,28 @@ RE.getSelectedHref = function() {
 
 // Returns the cursor position relative to its current position onscreen.
 // Can be negative if it is above what is visible
-RE.getRelativeCaretYPosition = function() {
-    var y = 0;
-    var sel = window.getSelection();
-    if (sel.rangeCount) {
-        var range = sel.getRangeAt(0);
-        var needsWorkAround = (range.startOffset == 0)
-        /* Removing fixes bug when node name other than 'div' */
-        // && range.startContainer.nodeName.toLowerCase() == 'div');
-        if (needsWorkAround) {
-            y = range.startContainer.offsetTop - window.pageYOffset;
-        } else {
-            if (range.getClientRects) {
-                var rects=range.getClientRects();
-                if (rects.length > 0) {
-                    y = rects[0].top;
-                }
-            }
-        }
-    }
-    
-    return y;
-};
+//RE.getRelativeCaretYPosition = function() {
+//    var y = 0;
+//    var sel = window.getSelection();
+//    if (sel.rangeCount) {
+//        var range = sel.getRangeAt(0);
+//        var needsWorkAround = (range.startOffset == 0)
+//        /* Removing fixes bug when node name other than 'div' */
+//        // && range.startContainer.nodeName.toLowerCase() == 'div');
+//        if (needsWorkAround) {
+//            y = range.startContainer.offsetTop - window.pageYOffset;
+//        } else {
+//            if (range.getClientRects) {
+//                var rects=range.getClientRects();
+//                if (rects.length > 0) {
+//                    y = rects[0].top;
+//                }
+//            }
+//        }
+//    }
+//    console.log(y)
+//    return y;
+//};
 
 //当前光标所在位置的样式回调
 RE.enableEditingItems = function(event, type) {
@@ -633,6 +649,7 @@ RE.enableEditingItems = function(event, type) {
     RE.editorState = items;
     RE.currentFmtCount = items.length
 }
+
 RE.editorState = null;
 
 RE.isCommandEnabled = function(commandName) {
@@ -694,33 +711,33 @@ RE.isNode = function (heading, mNode) {
     return [is, node];
 }
 
-RE.calculateEditorHeightWithCaretPosition = function() {
-    
-    var padding = 64;
-    var c = RE.getCaretYPosition();
-    
-    var offsetY = window.document.body.scrollTop;
-    var height = RE.contentHeight;
-    
-    var newPos = window.pageYOffset;
-    if (c < offsetY) {
-        newPos = c;
-    } else if (c > (offsetY + height - padding)) {
-        newPos = c - height + padding - 18;
-    }
-    window.scrollTo(0, newPos);
-}
+//RE.calculateEditorHeightWithCaretPosition = function() {
+//    
+//    var padding = 64;
+//    var c = RE.getCaretYPosition();
+//    
+//    var offsetY = window.document.body.scrollTop;
+//    var height = RE.contentHeight;
+//    
+//    var newPos = window.pageYOffset;
+//    if (c < offsetY) {
+//        newPos = c;
+//    } else if (c > (offsetY + height - padding)) {
+//        newPos = c - height + padding - 18;
+//    }
+//    window.scrollTo(0, newPos);
+//}
 
-RE.getCaretYPosition = function() {
-    var sel = window.getSelection();
-    var range = sel.getRangeAt(0);
-    var span = document.createElement('span');// something happening here preventing selection of elements
-    range.collapse(false);
-    range.insertNode(span);
-    var topPosition = span.offsetTop;
-    span.parentNode.removeChild(span);
-    return topPosition;
-}
+//RE.getCaretYPosition = function() {
+//    var sel = window.getSelection();
+//    var range = sel.getRangeAt(0);
+//    var span = document.createElement('span');// something happening here preventing selection of elements
+//    range.collapse(false);
+//    range.insertNode(span);
+//    var topPosition = span.offsetTop;
+//    span.parentNode.removeChild(span);
+//    return topPosition;
+//}
 
 RE.removeEditorState = function(type) {
     const states = ['blockquote', 'h3', 'unorderedList']
