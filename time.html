@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="cn">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0, minimal-ui" />
+    <title></title>
+
+  <body>
+    <span class="mon"></span>
+    <span class="day"></span>
+    <span class="date"></span>
+
+    <script>
+    !function() {
+        var now = new Date(), m = now.getMonth(), d = now.getDate(), day = now.getDay(), mP = ['一月','二月','三月','四月','五月','六月','七月','八月','九月','十月','十一月','十二月'], dP = ['周日','周一','周二','周三','周四','周五','周六'];
+
+        document.querySelector('.mon').innerHTML = mP[m];
+        document.querySelector('.day').innerHTML = dP[day];
+        document.querySelector('.date').innerHTML = d;
+    }();
+    </script>
+
+</html>
