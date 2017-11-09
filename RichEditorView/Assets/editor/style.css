@@ -31,6 +31,12 @@ body {
     margin:0px;
 }
 
+#title {
+    font-size: 18pt;
+    font-family: 'HelveticaNeue';
+    font-weight: bold;
+}
+
 h3, p {
     margin: 0;
 }

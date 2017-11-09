@@ -208,25 +208,25 @@ extension ViewController {
     
     func keyboardWillShowOrHide(aNotification:Notification) {
         let userInfo = aNotification.userInfo
-        let duration = userInfo?[UIKeyboardAnimationDurationUserInfoKey] as? NSNumber ?? 0
+//        let duration = userInfo?[UIKeyboardAnimationDurationUserInfoKey] as? NSNumber ?? 0
         let keyboardEnd = userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue
         let sizeOfToolbar = toolbar.frame.size.height
         let keyboardHeight = keyboardEnd?.cgRectValue.size.height ?? 0
         if aNotification.name == NSNotification.Name.UIKeyboardWillShow {
-            UIView.animate(withDuration: duration.doubleValue, delay: 0, options: .curveEaseInOut, animations: {
+//            UIView.animate(withDuration: duration.doubleValue, delay: 0, options: .curveEaseInOut, animations: {
                 self.editorView.frame.size.height = self.view.frame.size.height - keyboardHeight - sizeOfToolbar - 25
                 self.editorView.webView.frame.size.height = self.editorView.frame.size.height
                 self.editorView.webView.scrollView.contentInset = self.webViewInset
                 self.editorView.webView.scrollView.scrollIndicatorInsets = .zero
                 self.editorView.runCustomJS(js: "RE.contentHeight=\(self.editorView.frame.size.height)")
-            }, completion: nil)
+//            }, completion: nil)
         } else if aNotification.name == NSNotification.Name.UIKeyboardWillHide {
 //            UIView.animate(withDuration: duration.doubleValue, delay: 0, options: .curveEaseInOut, animations: {
-                self.toolbar.frame.origin.y = self.view.frame.size.height + keyboardHeight
-                self.editorView.frame.size.height = self.view.frame.size.height
-                self.editorView.webView.scrollView.contentInset = self.webViewInset
-                self.editorView.webView.scrollView.scrollIndicatorInsets = .zero
-                self.editorView.runCustomJS(js: "RE.contentHeight=\(self.editorView.frame.size.height)")
+//                self.toolbar.frame.origin.y = self.view.frame.size.height + keyboardHeight
+//                self.editorView.frame.size.height = self.view.frame.size.height
+//                self.editorView.webView.scrollView.contentInset = self.webViewInset
+//                self.editorView.webView.scrollView.scrollIndicatorInsets = .zero
+//                self.editorView.runCustomJS(js: "RE.contentHeight=\(self.editorView.frame.size.height)")
 //            }, completion: nil)
         }
     }
