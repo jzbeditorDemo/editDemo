@@ -35,9 +35,8 @@ RE.editor = document.getElementById('editor');
 document.addEventListener("selectionchange", function(e) {
                           RE.backuprange();
                           RE.replaceDIVNode();
-//                          RE.calculateEditorHeightWithCaretPosition();
                           RE.enableEditingItems(e);
-                          });
+                });
 
 RE.editor.addEventListener("touchend", function(e) {
                             RE.enableEditingItems(e);
@@ -77,7 +76,6 @@ RE.editor.addEventListener("focus", function(e) {
                            RE.backuprange();
                            RE.enableEditingItems(e);
                            RE.callback("focus");
-                           RE.callback("enableBar");
                            });
 
 RE.editor.addEventListener("blur", function() {
@@ -137,6 +135,11 @@ RE.setHtml = function(contents) {
 
 RE.getHtml = function() {
     return RE.editor.innerHTML;
+};
+
+RE.isTitleFocus = function() {
+    var isTitleFocus=$("#title").is(":focus");
+    return isTitleFocus;
 };
 
 RE.getText = function() {
@@ -622,15 +625,13 @@ RE.enableEditingItems = function(event, type) {
             RE.currentEditingImage = null;
         }
     }
-    
     if (items.length > 0) {
         setTimeout(function() {
                    window.location.href = "callback://0/"+items.join(',');
-                   }, 0);
+        }, 0);
     }
     RE.editorState = items;
     RE.currentFmtCount = items.length
-    console.log(items);
 }
 RE.editorState = null;
 
@@ -772,8 +773,4 @@ RE.titleEditor.addEventListener("input", function(e) {
   } else {
     e.target.setAttribute("placeholder", '请填写标题');
   }
-});
-
-RE.titleEditor.addEventListener("focus", function(e) {
-  RE.callback("disableBar");
 });

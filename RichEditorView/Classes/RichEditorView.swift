@@ -537,6 +537,30 @@ open class RichEditorView: UIView, UIScrollViewDelegate, UIWebViewDelegate, UIGe
             let action = method.replacingCharacters(in: range, with: "")
             delegate?.richEditor?(self, handle: action)
         }
+        else if method.hasPrefix("disableBar") {
+            disableToolBar()
+        } else if method.hasPrefix("enableBar") {
+            enableToolBar()
+        }
+    }
+    
+    private func disableToolBar() {
+        if let toolBar = self.inputAccessoryView as? RichEditorToolbar,(toolBar.items?.count ?? 0) > 0 {
+            for item in toolBar.items!{
+                let itemLabel = (item as? RichBarButtonItem)?.label ?? ""
+                if itemLabel != "title" {
+                    item.isEnabled = false
+                }
+            }
+        }
+    }
+    
+    private func enableToolBar() {
+        if let toolBar = self.inputAccessoryView as? RichEditorToolbar,(toolBar.items?.count ?? 0) > 0 {
+            for item in toolBar.items!{
+                item.isEnabled = true
+            }
+        }
     }
 
     /// Called by the UITapGestureRecognizer when the user taps the view.
@@ -549,7 +573,16 @@ open class RichEditorView: UIView, UIScrollViewDelegate, UIWebViewDelegate, UIGe
     }
     
     private func updateToolBarWithButtonNames(name:String) {
-        let nameItems = name._split(separator: ",")
+        
+        let isTitleFoucs = runJS("RE.isTitleFocus();")
+        if isTitleFoucs == "true" {
+            disableToolBar()
+            return
+        } else {
+            enableToolBar()
+        }
+        
+        let nameItems = name.split(separator: ",")
         var itemsModified = [String]()
         for linkItem in nameItems {
             var updateItem = linkItem
