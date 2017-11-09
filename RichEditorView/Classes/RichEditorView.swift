@@ -520,10 +520,15 @@ open class RichEditorView: UIView, UIScrollViewDelegate, UIWebViewDelegate, UIGe
             if !isEditorLoaded {
                 isEditorLoaded = true
                 if titleHTML != nil {
-                    title = titleHTML!
-                    titleDisplay()
+                    after(0.5, block: {
+                        self.title = self.titleHTML!
+                        self.titleDisplay()
+                        self.html = self.contentHTML
+                        self.focus()
+                    })
+                } else {
+                    html = contentHTML
                 }
-                html = contentHTML
                 isContentEditable = editingEnabledVar
                 placeholder = placeholderText
                 lineHeight = innerLineHeight
