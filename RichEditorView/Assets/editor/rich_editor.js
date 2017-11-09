@@ -326,10 +326,10 @@ RE.insertImage = function(url, alt,id) {
 };
 
 RE.updateImageProgress = function(prd,id) {
-    console.log(prd);
-    console.log(id);
     var progressId = id + "_progress";
-    var progress = $("#" + progressId);
+    var progress = document.getElementById(progressId)
+//    var progress = $("#" + progressId);
+    console.log(progress)
     progress.value = parseFloat(prd);
 };
 
