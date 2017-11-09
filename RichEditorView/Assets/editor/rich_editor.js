@@ -60,14 +60,14 @@ RE.stState = null;
 
 window.addEventListener('resize', function() {
                           clearTimeout(RE.stState);
-                          RE.stState = setTimeout(function() {RE.setScrollTop();}, 200);
+                          RE.stState = setTimeout(function() {RE.setScrollTop();}, 800);
                         });
 
 RE.setScrollTop = function() {
-    var ch = document.body.clientHeight;
+    var ch = RE.editor.clientHeight;
     if (document.getSelection() && document.getSelection().focusNode) {
         var dg = document.getSelection().focusNode.offsetTop || 0;
-        dg - ch > 0 && (RE.editor.scrollTop = dg - ch);
+        dg - ch > 0 && (RE.editor.scrollTop = dg);
     }
 }
 
