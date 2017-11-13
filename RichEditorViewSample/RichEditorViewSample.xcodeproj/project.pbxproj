@@ -245,7 +245,7 @@
 				TargetAttributes = {
 					39BBCFA91AD0CC7A00A450D2 = {
 						CreatedOnToolsVersion = 6.2;
-						DevelopmentTeam = E56PJSX4T7;
+						DevelopmentTeam = 8TQCDCF57A;
 						LastSwiftMigration = 0800;
 						ProvisioningStyle = Manual;
 					};
@@ -495,14 +495,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = E56PJSX4T7;
+				DEVELOPMENT_TEAM = 8TQCDCF57A;
 				INFOPLIST_FILE = RichEditorViewSample/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.eduu.forum2;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tydic.ronghhe;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "30d0f4a3-88ae-43fd-ab43-4c4727a98a83";
-				PROVISIONING_PROFILE_SPECIFIER = jiazhangbangGmailDev;
+				PROVISIONING_PROFILE = "2574fdc2-0ca2-469d-8a11-2c846b01adee";
+				PROVISIONING_PROFILE_SPECIFIER = ronghetongxin_qiye;
 				SWIFT_OBJC_BRIDGING_HEADER = "RichEditorViewSample/RichEditorViewSample-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
@@ -515,14 +516,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = E56PJSX4T7;
+				DEVELOPMENT_TEAM = 8TQCDCF57A;
 				INFOPLIST_FILE = RichEditorViewSample/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.eduu.forum2;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tydic.ronghhe;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "30d0f4a3-88ae-43fd-ab43-4c4727a98a83";
-				PROVISIONING_PROFILE_SPECIFIER = jiazhangbangGmailDev;
+				PROVISIONING_PROFILE = "2574fdc2-0ca2-469d-8a11-2c846b01adee";
+				PROVISIONING_PROFILE_SPECIFIER = ronghetongxin_qiye;
 				SWIFT_OBJC_BRIDGING_HEADER = "RichEditorViewSample/RichEditorViewSample-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};

@@ -408,8 +408,12 @@ open class RichEditorView: UIView, UIScrollViewDelegate, UIWebViewDelegate, UIGe
         runJS("RE.imageUploadSuccess('\(imageId)');")
     }
     
-    public func imageUploadFail(imageId:String) {
-        
+    public func imageUploadFailed(imageId:String) {
+        runJS("RE.markImageUploadFailed('\(imageId)');")
+    }
+    
+    public func cancelImageUploadFailedState(imageId:String) {
+        runJS("RE.unMarkImageUploadFailed('\(imageId)');")
     }
     
     // MARK: - Delegate Methods

@@ -332,7 +332,7 @@ RE.setLineHeight = function(height) {
 
 RE.insertImage = function(url, alt,id) {
     var span = document.createElement("span");
-    span.id = id;
+    span.id = id + "_span";
     span.className = "img_container"
     
     var progress = document.createElement("progress");
@@ -370,6 +370,33 @@ RE.imageUploadSuccess = function(id) {
     var image = document.getElementById(id + "_img");
     image.style.opacity = 1;
 };
+
+RE.markImageUploadFailed = function(id) {
+    var progressId = id + "_progress";
+    var progress = document.getElementById(progressId)
+    if (progress.length != 0){
+        $(progress).addClass('failed');
+    }
+    var spanId = id + "_span";
+    var span = document.getElementById(spanId)
+    if (span.length != 0){
+        $(span).addClass('failed');
+    }
+};
+
+RE.unMarkImageUploadFailed = function(id) {
+    var progressId = id + "_progress";
+    var progress = document.getElementById(progressId)
+    if (progress.length != 0){
+        $(progress).removeClass('failed');
+    }
+    var spanId = id + "_span";
+    var span = document.getElementById(spanId)
+    if (span.length != 0){
+        $(span).removeClass('failed');
+    }
+};
+
 
 RE.setBlockquote = function() {
     RE.removeEditorState('blockquote');

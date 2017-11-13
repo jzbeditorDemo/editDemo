@@ -216,6 +216,10 @@ extension ViewController {
             let timer = Timer(timeInterval: 0.1, repeats: true, block: { (timer) in
                 progress += 0.01
                 print(progress)
+                if progress >= 0.5 {
+                    self.editorView.imageUploadFailed(imageId: imageId)
+                    timer.invalidate()
+                }
                 if progress >= 1 {
                     self.editorView.imageUploadSuccess(imageId: imageId)
                     timer.invalidate()
