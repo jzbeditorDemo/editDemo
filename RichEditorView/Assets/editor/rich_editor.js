@@ -393,11 +393,11 @@ RE.markImageUploadFailed = function(id) {
 
 //图片上传失败后，点击重新上传回调
 RE.uploadFailedCallback = function(e) {
+    var id = this.id.split("_")[0]
+    RE.unMarkImageUploadFailed(id)
     setTimeout(function() {
                RE.callback("reUploadImage_"+ id);
                }, 0);
-    var id = this.id.split("_")[0]
-    RE.unMarkImageUploadFailed(id)
 }
 
 RE.unMarkImageUploadFailed = function(id) {
