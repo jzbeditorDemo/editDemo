@@ -607,7 +607,7 @@ open class RichEditorView: UIView, UIScrollViewDelegate, UIWebViewDelegate, UIGe
             enableToolBar()
         }
         
-        let nameItems = name.split(separator: ",")
+        let nameItems = name._split(separator: ",")
         var itemsModified = [String]()
         for linkItem in nameItems {
             var updateItem = linkItem

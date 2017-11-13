@@ -380,9 +380,21 @@ RE.markImageUploadFailed = function(id) {
     var spanId = id + "_span";
     var span = document.getElementById(spanId)
     if (span.length != 0){
-        $(span).addClass('failed');
+        $(span)
+        .addClass('failed')
+        .on('touchstart', function() {
+              $(this).on('touchend', RE.reSendImg)
+            })
+        .on('touchmove', function() {
+            $(this).off('touchend', RE.reSendImg)
+            })
     }
 };
+
+RE.reSendImg = function(e) {
+  alert('run')
+    $(this).remove()
+}
 
 RE.unMarkImageUploadFailed = function(id) {
     var progressId = id + "_progress";
