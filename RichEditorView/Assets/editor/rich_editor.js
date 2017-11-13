@@ -383,22 +383,27 @@ RE.markImageUploadFailed = function(id) {
         $(span)
         .addClass('failed')
         .on('touchstart', function() {
-              $(this).on('touchend', RE.reSendImg)
+              $(this).on('touchend', RE.uploadFailedCallback)
             })
         .on('touchmove', function() {
-            $(this).off('touchend', RE.reSendImg)
+            $(this).off('touchend', RE.uploadFailedCallback)
             })
     }
 };
 
-RE.reSendImg = function(e) {
-  alert('run')
-    $(this).remove()
+//图片上传失败后，点击重新上传回调
+RE.uploadFailedCallback = function(e) {
+    setTimeout(function() {
+               RE.callback("reUploadImage_"+ id);
+               }, 0);
+    var id = this.id.split("_")[0]
+    RE.unMarkImageUploadFailed(id)
 }
 
 RE.unMarkImageUploadFailed = function(id) {
     var progressId = id + "_progress";
     var progress = document.getElementById(progressId)
+    progress.value = 0
     if (progress.length != 0){
         $(progress).removeClass('failed');
     }

@@ -564,8 +564,12 @@ open class RichEditorView: UIView, UIScrollViewDelegate, UIWebViewDelegate, UIGe
         }
         else if method.hasPrefix("disableBar") {
             disableToolBar()
-        } else if method.hasPrefix("enableBar") {
+        }
+        else if method.hasPrefix("enableBar") {
             enableToolBar()
+        }
+        else if method.hasPrefix("reUploadImage_") {
+            self.delegate?.richEditor?(self, handle: "\(method)")
         }
     }
     
@@ -607,7 +611,7 @@ open class RichEditorView: UIView, UIScrollViewDelegate, UIWebViewDelegate, UIGe
             enableToolBar()
         }
         
-        let nameItems = name._split(separator: ",")
+        let nameItems = name.split(separator: ",")
         var itemsModified = [String]()
         for linkItem in nameItems {
             var updateItem = linkItem

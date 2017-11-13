@@ -82,8 +82,14 @@ class ViewController: UIViewController {
 }
 
 extension ViewController: RichEditorDelegate {
-
-    func richEditor(_ editor: RichEditorView, contentDidChange content: String) {
+    
+    func richEditor(_ editor: RichEditorView, handle action: String) {
+        if action.hasPrefix("reUploadImage_") {
+            let range = action.range(of: "reUploadImage_")!
+            let id = action.replacingCharacters(in: range, with: "")
+            let filePath = NSHomeDirectory() + "/Documents/" + id + ".jpg"
+            self.uploadImage(filePath: filePath, imageId: id)
+        }
     }
 }
 
@@ -216,10 +222,10 @@ extension ViewController {
             let timer = Timer(timeInterval: 0.1, repeats: true, block: { (timer) in
                 progress += 0.01
                 print(progress)
-                if progress >= 0.5 {
-                    self.editorView.imageUploadFailed(imageId: imageId)
-                    timer.invalidate()
-                }
+//                if progress >= 0.5 {
+//                    self.editorView.imageUploadFailed(imageId: imageId)
+//                    timer.invalidate()
+//                }
                 if progress >= 1 {
                     self.editorView.imageUploadSuccess(imageId: imageId)
                     timer.invalidate()
