@@ -275,9 +275,10 @@ RE.setHeading = function(heading) {
     var t = isObj[1].prop("tagName").toLowerCase();
     var is_heading = (t == 'h1' || t == 'h2' || t == 'h3' || t == 'h4' || t == 'h5' || t == 'h6');
     if (is_heading && isObj[0]) {
-        var c = isObj[1].html();
-        isObj[1].replaceWith(c);
-        RE.focus();
+//        var c = isObj[1].html();
+//        isObj[1].replaceWith(c);
+//        RE.focus();
+        document.execCommand('formatBlock', false, '<p>');
     } else {
         document.execCommand('formatBlock', false, '<'+heading+'>');
     }
@@ -420,9 +421,10 @@ RE.setBlockquote = function() {
     var current_selection = $(RE.getSelectedNode());
     var isObj = RE.isNode('blockquote', current_selection);
     if (isObj[0]) {
-        var c = isObj[1].html();
-        isObj[1].replaceWith(c);
-        RE.focus();
+//        var c = isObj[1].html();
+//        isObj[1].replaceWith(c);
+//        RE.focus();
+        document.execCommand('formatBlock', false, '<p>');
     } else {
         document.execCommand('formatBlock', false, '<blockquote>');
     }
