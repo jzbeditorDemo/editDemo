@@ -1,8 +1,26 @@
 PODS:
+  - DTCoreText (1.6.20):
+    - DTCoreText/Core (= 1.6.20)
+    - DTFoundation/Core (~> 1.7.5)
+    - DTFoundation/DTAnimatedGIF (~> 1.7.5)
+    - DTFoundation/DTHTMLParser (~> 1.7.5)
+    - DTFoundation/UIKit (~> 1.7.5)
+  - DTCoreText/Core (1.6.20):
+    - DTFoundation/Core (~> 1.7.5)
+    - DTFoundation/DTAnimatedGIF (~> 1.7.5)
+    - DTFoundation/DTHTMLParser (~> 1.7.5)
+    - DTFoundation/UIKit (~> 1.7.5)
+  - DTFoundation/Core (1.7.12)
+  - DTFoundation/DTAnimatedGIF (1.7.12)
+  - DTFoundation/DTHTMLParser (1.7.12):
+    - DTFoundation/Core
+  - DTFoundation/UIKit (1.7.12):
+    - DTFoundation/Core
   - RichEditorView (4.0.0)
   - TZImagePickerController (1.7.9)
 
 DEPENDENCIES:
+  - DTCoreText (~> 1.6.20)
   - RichEditorView (from `../`)
   - TZImagePickerController (~> 1.7.9)
 
@@ -11,9 +29,11 @@ EXTERNAL SOURCES:
     :path: ../
 
 SPEC CHECKSUMS:
+  DTCoreText: 51904f2374af443e0d270d6fdc76035ab6f9ef8a
+  DTFoundation: 26a164ef510877387906fb92bff524a792db4bf8
   RichEditorView: dd8359f7e33230d942e300be8efbd0602868c822
   TZImagePickerController: 0a8ff228d287ebdd7d485e8c42a2a932894f1fba
 
-PODFILE CHECKSUM: 12127d162732bdaa8561bb64dfe7e8e9a0d78439
+PODFILE CHECKSUM: dbab2841e0f40f05a5d9383a9d1420e27e445e91
 
 COCOAPODS: 1.2.0
