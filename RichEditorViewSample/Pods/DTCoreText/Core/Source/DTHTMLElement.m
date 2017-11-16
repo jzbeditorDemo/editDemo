@@ -1374,7 +1374,7 @@ NSDictionary *_classesForNames = nil;
 		}
 	}
 	
-    if (_displayStyle == DTHTMLElementDisplayStyleBlock || [self.name isEqualToString:@"blockquote"])
+    if (_displayStyle == DTHTMLElementDisplayStyleBlock)
 	{
 		// we only care for margins of block level elements
 		if (hasMargins)
