@@ -50,7 +50,9 @@ class ViewController: UIViewController {
         editorView.placeholder = "说点什么吧..."
         
         let btn = UIBarButtonItem(title: "内容", style: .plain, target: self, action: #selector(showHTML))
-        self.navigationItem.rightBarButtonItem = btn
+        let btn2 = UIBarButtonItem(title: "显示", style: .plain, target: self, action: #selector(showtableList))
+        
+        self.navigationItem.rightBarButtonItems = [btn,btn2]
         
         if initTitle != nil {
             self.editorView.title = self.initTitle!
@@ -61,8 +63,14 @@ class ViewController: UIViewController {
         }
     }
     
-    func showHTML() {
+    @objc func showHTML() {
         print("😝😝\(editorView.html)")
+    }
+    
+    @objc func showtableList() {
+        let tableVC = ShowListViewController()
+        tableVC.contentHTMl = editorView.html
+        self.navigationController?.pushViewController(tableVC, animated: true)
     }
     
     private func customTitle() {
@@ -70,7 +78,7 @@ class ViewController: UIViewController {
     }
     
     private func customBody() {
-        self.initBody = "内容测试，爱过你公司房间看电视了蛋糕发生房间里上的f第三方<b>发生发多少 发多少是</b><span style=\"font-size: 14pt;\">‌</span><blockquote>发生发多少分&nbsp;</blockquote><blockquote>都是发多少是的发</blockquote><p><ul><li>哈哈哈哈哈</li><li>哥哥哥哥哥哥</li><li>哈哈哈哈哈哈哈哈哈</li></ul><h3>哈发生的纠纷老师的就看电视了房间快乐发生的发&nbsp;</h3><p><span id=\"91C0624F-D1A3-4FBC-B29E-387339BC2E51\" class=\"img_container\"><img src=\"/Users/superjoo/Library/Developer/CoreSimulator/Devices/D0CEB8F8-2BB4-402E-B289-A3062117C9AE/data/Containers/Data/Application/C1DE1361-F3BF-45E4-A77C-A90787C70AEA/Documents/91C0624F-D1A3-4FBC-B29E-387339BC2E51.jpg\" alt=\"\" id=\"91C0624F-D1A3-4FBC-B29E-387339BC2E51_img\" style=\"opacity: 1;\"></span><br></p><p>飞机上了发飞机上了飞机了飞机上了发了</p><p>房间里上</p><p><br></p><p>飞机开始了</p><p><span id=\"DBDA742F-786C-4ABA-8C74-3E2B61249A48\" class=\"img_container\"><img src=\"/Users/superjoo/Library/Developer/CoreSimulator/Devices/D0CEB8F8-2BB4-402E-B289-A3062117C9AE/data/Containers/Data/Application/C1DE1361-F3BF-45E4-A77C-A90787C70AEA/Documents/DBDA742F-786C-4ABA-8C74-3E2B61249A48.jpg\" alt=\"\" id=\"DBDA742F-786C-4ABA-8C74-3E2B61249A48_img\" style=\"opacity: 1;\"></span><br></p><p><br></p><p>就是发生了飞机上了发发生 end</p><p>end。。。。。</p></p><br>"
+        self.initBody = "内容测试，爱过你公司房间看电视了蛋糕发生房间里上的f第三方<b>发生发多少 发多少是</b><span style=\"font-size: 14pt;\">‌</span><blockquote style=\"background: rgb(247,247,247);padding: 15px 10px;margin: 10px 10px 10px 0px;border-left: 6px solid rgb(180,180,180);\">发生发多少分化解拉夫废旧塑料发废旧塑料发是记录附件了首付暗精灵说服力放假了是否放假了是</blockquote><ul><li>哈哈哈哈哈</li><li>哥哥哥哥哥哥</li><li>哈哈哈哈哈哈哈哈哈</li></ul><h3>哈发生的纠纷老师的就看电视了房间快乐发生的发&nbsp;</h3><p><img src='http://pic42.nipic.com/20140617/7003505_213800766156_2.jpg' width=\"360\" height=\"340\"><br></p><p>飞机上了发飞机上了飞机了飞机上了发了</p><p>房间里上</p><p><br></p><p>飞机开始了</p><br></p><p>就是发生了飞机上了发发生 end</p><p>end。。。。。</p></p><br>"
     }
     
     func after(_ time:Float,block:@escaping () -> Void) {
