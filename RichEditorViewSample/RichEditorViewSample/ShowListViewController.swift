@@ -21,6 +21,8 @@ class ShowListViewController: UIViewController,UITableViewDelegate,UITableViewDa
         table.dataSource = self
         self.view.addSubview(table)
         
+        self.title = "native 排版"
+        
 //        DTTextAttachment.registerClass(BlockquoteAttachment.self, forTagName: "blockquote")
     }
     
@@ -55,18 +57,45 @@ class ShowListViewController: UIViewController,UITableViewDelegate,UITableViewDa
             imageView.delegate = self
             imageView.image = (attachment as! DTImageTextAttachment).image
             imageView.url = attachment.contentURL
-            imageView.contentView = attributedTextContentView
+            imageView.isUserInteractionEnabled = true
+            let btn = UIButton(type: .custom)
+            btn.backgroundColor = UIColor.clear
+            btn.frame = imageView.bounds
+            btn.addTarget(self, action: #selector(imageViewTaped(button:)), for: .touchUpInside)
+            imageView.addSubview(btn)
             return imageView
-        } else if attachment is BlockquoteAttachment {
-            print("--------")
-            let v = UIView(frame: frame)
-            v.frame.size.width = 300
-            v.frame.size.height = 160
-            v.backgroundColor = UIColor.red
-            return v
         }
         
         return nil;
     }
+    
+    func attributedTextContentView(_ attributedTextContentView: DTAttributedTextContentView!, viewFor string: NSAttributedString!, frame: CGRect) -> UIView! {
+       
+        let attributes = string.attributes(at: 0, effectiveRange: nil)
+        let url = attributes[DTLinkAttribute] as? URL
+        let identifier = attributes[DTGUIDAttribute] as? String
+        if url != nil {
+            let linkBtn = DTLinkButton(frame: frame)
+            linkBtn.url = url!
+            linkBtn.minimumHitSize = CGSize(width: 25, height: 25)
+            linkBtn.guid = identifier ?? ""
+            
+            let normalImage = attributedTextContentView.contentImage(withBounds: frame, options: .default)
+            linkBtn.setImage(normalImage, for: .normal)
+            let hilightedImage = attributedTextContentView.contentImage(withBounds: frame, options: .drawLinksHighlighted)
+            linkBtn.setImage(hilightedImage, for: .highlighted)
+            linkBtn.addTarget(self, action: #selector(linkPushed(button:)), for: .touchUpInside)
+            return linkBtn
+        }
+        return nil
+    }
 
+    func imageViewTaped(button:UIButton) {
+        let view = button.superview as? DTLazyImageView
+        print(view?.url.absoluteString ?? "")
+    }
+    
+    func linkPushed(button:DTLinkButton) {
+        print(button.url.absoluteString)
+    }
 }

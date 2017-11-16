@@ -78,7 +78,7 @@ class ViewController: UIViewController {
     }
     
     private func customBody() {
-        self.initBody = "内容测试，爱过你公司房间看电视了蛋糕发生房间里上的f第三方<b>发生发多少 发多少是</b><span style=\"font-size: 14pt;\">‌</span><blockquote style=\"background: rgb(247,247,247);padding: 15px 10px;margin: 10px 10px 10px 0px;border-left: 6px solid rgb(180,180,180);\">发生发多少分化解拉夫废旧塑料发废旧塑料发是记录附件了首付暗精灵说服力放假了是否放假了是</blockquote><ul><li>哈哈哈哈哈</li><li>哥哥哥哥哥哥</li><li>哈哈哈哈哈哈哈哈哈</li></ul><h3>哈发生的纠纷老师的就看电视了房间快乐发生的发&nbsp;</h3><p><img src='http://pic42.nipic.com/20140617/7003505_213800766156_2.jpg' width=\"360\" height=\"340\"><br></p><p>飞机上了发飞机上了飞机了飞机上了发了</p><p>房间里上</p><p><br></p><p>飞机开始了</p><br></p><p>就是发生了飞机上了发发生 end</p><p>end。。。。。</p></p><br>"
+        self.initBody = "内容测试，爱过你公司房间看电视了蛋糕发生房间里上的f第三方<b>发生发多少 发多少是</b><span style=\"font-size: 14pt;\">‌</span><blockquote style=\"background: rgb(247,247,247);padding: 15px 10px;margin: 10px 10px 10px 0px;border-left: 6px solid rgb(180,180,180);\">发生发多少分化解拉夫废旧塑料发废旧塑料发是记录附件了首付暗精灵说服力放假了是否放假了是</blockquote><ul><li>哈哈哈哈哈</li><li>哥哥哥哥哥哥</li><li>哈哈哈哈哈哈哈哈哈</li></ul><a href=\"http://www.baidu.com\">超链接测试</a><h3>哈发生的纠纷老师的就看电视了房间快乐发生的发&nbsp;</h3><p><img src='http://pic42.nipic.com/20140617/7003505_213800766156_2.jpg' width=\"360\" height=\"340\"><br></p><p>飞机上了发飞机上了飞机了飞机上了发了</p><p>房间里上</p><p><br></p><p>飞机开始了</p><br></p><p>就是发生了飞机上了发发生 end</p><p>end。。。。。</p></p><br>"
     }
     
     func after(_ time:Float,block:@escaping () -> Void) {

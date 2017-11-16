@@ -24,5 +24,10 @@
  */
 @property (nonatomic, strong) DTColor *backgroundColor;
 
+//边框颜色
+@property (nonatomic,strong) DTColor *borderColor;
+
+//各个边的边框宽度
+@property (nonatomic, assign) DTEdgeInsets borderEdge;
 
 @end

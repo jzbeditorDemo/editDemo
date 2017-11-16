@@ -77,6 +77,8 @@
 	CGFloat _listIndent;
 	
 	BOOL _shouldProcessCustomHTMLAttributes;
+    
+    BOOL _border_left;
 }
 
 /**

@@ -1130,6 +1130,33 @@ static BOOL _DTCoreTextLayoutFramesShouldDrawDebugFrames = NO;
 			CGContextSetFillColorWithColor(context, color);
 			CGContextFillRect(context, frame);
 		}
+        if (textBlock.borderColor) {//边框颜色绘制
+            CGColorRef bordercolor = [textBlock.borderColor CGColor];
+            CGContextSetFillColorWithColor(context, bordercolor);
+            UIEdgeInsets edge = textBlock.borderEdge;
+            if (edge.left > 0) {//左边框
+                CGRect leftBorderFrame = frame;
+                leftBorderFrame.size.width = edge.left;
+                CGContextFillRect(context, leftBorderFrame);
+            }
+            if (edge.top > 0) {//上边框
+                CGRect topBorderFrame = frame;
+                topBorderFrame.size.height = edge.top;
+                CGContextFillRect(context, topBorderFrame);
+            }
+            if (edge.bottom > 0) {//下边框
+                CGRect bottomBorderFrame = frame;
+                bottomBorderFrame.size.height = edge.bottom;
+                bottomBorderFrame.origin.y = frame.size.height - edge.bottom;
+                CGContextFillRect(context, bottomBorderFrame);
+            }
+            if (edge.right > 0) {//右边框
+                CGRect rightBorderFrame = frame;
+                rightBorderFrame.origin.x = frame.size.width - edge.right;
+                rightBorderFrame.size.width = edge.right;
+                CGContextFillRect(context, rightBorderFrame);
+            }
+        }
 	}
 	
 	if (_DTCoreTextLayoutFramesShouldDrawDebugFrames)

@@ -1327,6 +1327,8 @@ NSDictionary *_classesForNames = nil;
 	else {
 		_backgroundCornerRadius = 0.0f;
 	}
+    
+    _border_left = [[styles objectForKey:@"border-left"] boolValue];
 	
 	BOOL needsTextBlock = (_backgroundColor!=nil || _backgroundStrokeColor!=nil || _backgroundCornerRadius > 0 || _backgroundStrokeWidth > 0);
 	
@@ -1399,6 +1401,16 @@ NSDictionary *_classesForNames = nil;
 			// transfer background color to block
 			newBlock.backgroundColor = _backgroundColor;
 			_backgroundColor = nil;
+            
+            //设置边框
+            newBlock.borderColor = self.backgroundStrokeColor;
+            if (_backgroundStrokeWidth > 0) {
+                if (_border_left) {//设置左边框
+                    newBlock.borderEdge = UIEdgeInsetsMake(0, _backgroundStrokeWidth, 0, 0);
+                } else {
+                    newBlock.borderEdge = UIEdgeInsetsMake(_backgroundStrokeWidth, _backgroundStrokeWidth, _backgroundStrokeWidth, _backgroundStrokeWidth);
+                }
+            }
 			
 			if (self.paragraphStyle.textBlocks)
 			{

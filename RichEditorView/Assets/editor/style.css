@@ -77,12 +77,12 @@ img{
     display: block;
 }
 
-/*blockquote{*/
-/*    background: rgb(247,247,247);*/
-/*    padding: 15px 10px;*/
-/*    margin: 10px 10px 10px 0px;*/
-/*    border-left: 6px solid rgb(180,180,180);*/
-/*}*/
+blockquote{
+    background: rgb(247,247,247);
+    padding: 15px 10px;
+    margin: 10px 10px 10px 0px;
+    border-left: 6px solid rgb(180,180,180);
+}
 
 span.img_container {
     top:10px;

@@ -13,6 +13,8 @@
 {
 	DTEdgeInsets _padding;
 	DTColor *_backgroundColor;
+    DTColor *_borderColor;
+    DTEdgeInsets _borderEdge;
 }
 
 - (instancetype)initWithCoder:(NSCoder *)aDecoder {
@@ -20,6 +22,8 @@
 	if (self) {
 		_padding = [aDecoder decodeDTEdgeInsetsForKey:@"padding"];
 		_backgroundColor = [aDecoder decodeObjectForKey:@"backgroundColor"];
+        _borderColor = [aDecoder decodeObjectForKey:@"borderColor"];
+        _borderEdge = [aDecoder decodeDTEdgeInsetsForKey:@"borderEdge"];
 	}
 	return self;
 }
@@ -27,6 +31,8 @@
 - (void)encodeWithCoder:(NSCoder *)aCoder {
 	[aCoder encodeDTEdgeInsets:_padding forKey:@"padding"];
 	[aCoder encodeObject:_backgroundColor forKey:@"backgroundColor"];
+    [aCoder encodeDTEdgeInsets:_borderEdge forKey:@"borderEdge"];
+    [aCoder encodeObject:_borderColor forKey:@"borderColor"];
 }
 
 - (NSUInteger)hash
@@ -38,6 +44,12 @@
 	calcHash = calcHash*31 + (NSUInteger)_padding.top;
 	calcHash = calcHash*31 + (NSUInteger)_padding.right;
 	calcHash = calcHash*31 + (NSUInteger)_padding.bottom;
+    
+    calcHash = calcHash*31 + [_borderColor hash];
+    calcHash = calcHash*31 + (NSUInteger)_borderEdge.left;
+    calcHash = calcHash*31 + (NSUInteger)_borderEdge.top;
+    calcHash = calcHash*31 + (NSUInteger)_borderEdge.right;
+    calcHash = calcHash*31 + (NSUInteger)_borderEdge.bottom;
 	
 	return calcHash;
 }
@@ -73,6 +85,19 @@
 	{
 		return YES;
 	}
+    
+    if (_borderEdge.left != other->_borderEdge.left ||
+        _borderEdge.top != other->_borderEdge.top ||
+        _borderEdge.right != other->_borderEdge.right ||
+        _borderEdge.bottom != other->_borderEdge.bottom)
+    {
+        return NO;
+    }
+    
+    if (other->_borderColor == _borderColor)
+    {
+        return YES;
+    }
 	
 	return [other->_backgroundColor isEqual:_backgroundColor];
 }
@@ -81,5 +106,7 @@
 
 @synthesize padding = _padding;
 @synthesize backgroundColor = _backgroundColor;
+@synthesize borderEdge = _borderEdge;
+@synthesize borderColor = _borderColor;
 
 @end
