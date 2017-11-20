@@ -14,7 +14,11 @@
 {
 	@synchronized(self)
 	{
-		NSDictionary *attributes = [self attributesForAttributedStringRepresentation];
+//        NSDictionary *attributes = [self attributesForAttributedStringRepresentation];
+        NSMutableDictionary *attributes = [NSMutableDictionary new];
+        NSMutableParagraphStyle *style = [NSMutableParagraphStyle new];
+        style.paragraphSpacingBefore = -5;
+        [attributes setObject:style forKey:NSParagraphStyleAttributeName];
 		return [[NSAttributedString alloc] initWithString:UNICODE_LINE_FEED attributes:attributes];
 	}
 }

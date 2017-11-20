@@ -16,7 +16,7 @@
 		39BBCFBA1AD0CC7A00A450D2 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39BBCFB81AD0CC7A00A450D2 /* LaunchScreen.xib */; };
 		39BBCFC61AD0CC7A00A450D2 /* RichEditorViewSampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39BBCFC51AD0CC7A00A450D2 /* RichEditorViewSampleTests.swift */; };
 		5E4685B71FBC13D3001131A9 /* ShowListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4685B61FBC13D3001131A9 /* ShowListViewController.swift */; };
-		5E4685BA1FBC2F2B001131A9 /* BlockquoteAttachment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4685B91FBC2F2B001131A9 /* BlockquoteAttachment.swift */; };
+		5E5357F21FC27C73003CEC34 /* RichTextFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E5357F11FC27C73003CEC34 /* RichTextFilter.swift */; };
 		5E6D03B51FAC224F005AA7F2 /* RichEditorStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E6D03B41FAC224E005AA7F2 /* RichEditorStruct.swift */; };
 		5E6D03CC1FAC28B4005AA7F2 /* re_blockquote@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E6D03C51FAC28A4005AA7F2 /* re_blockquote@2x.png */; };
 		5E6D03CD1FAC28B4005AA7F2 /* re_bold@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E6D03CA1FAC28A4005AA7F2 /* re_bold@2x.png */; };
@@ -56,7 +56,7 @@
 		39BBCFD01AD0CD4700A450D2 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		39BBCFD11AD0CD4700A450D2 /* RichEditorView.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = RichEditorView.podspec; path = ../RichEditorView.podspec; sourceTree = "<group>"; };
 		5E4685B61FBC13D3001131A9 /* ShowListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowListViewController.swift; sourceTree = "<group>"; };
-		5E4685B91FBC2F2B001131A9 /* BlockquoteAttachment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockquoteAttachment.swift; sourceTree = "<group>"; };
+		5E5357F11FC27C73003CEC34 /* RichTextFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RichTextFilter.swift; sourceTree = "<group>"; };
 		5E6D03B41FAC224E005AA7F2 /* RichEditorStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RichEditorStruct.swift; sourceTree = "<group>"; };
 		5E6D03C51FAC28A4005AA7F2 /* re_blockquote@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "re_blockquote@2x.png"; sourceTree = "<group>"; };
 		5E6D03C61FAC28A4005AA7F2 /* re_head@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "re_head@2x.png"; sourceTree = "<group>"; };
@@ -136,7 +136,7 @@
 				3912A4551B966C34005E41FA /* ObjCViewController.m */,
 				3912A4531B966C34005E41FA /* RichEditorViewSample-Bridging-Header.h */,
 				5E4685B61FBC13D3001131A9 /* ShowListViewController.swift */,
-				5E4685B91FBC2F2B001131A9 /* BlockquoteAttachment.swift */,
+				5E5357F11FC27C73003CEC34 /* RichTextFilter.swift */,
 			);
 			path = RichEditorViewSample;
 			sourceTree = "<group>";
@@ -362,8 +362,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5E5357F21FC27C73003CEC34 /* RichTextFilter.swift in Sources */,
 				5E6D03B51FAC224F005AA7F2 /* RichEditorStruct.swift in Sources */,
-				5E4685BA1FBC2F2B001131A9 /* BlockquoteAttachment.swift in Sources */,
 				39883B491AD0DC270031FD16 /* KeyboardManager.swift in Sources */,
 				3912A4561B966C34005E41FA /* ObjCViewController.m in Sources */,
 				5E4685B71FBC13D3001131A9 /* ShowListViewController.swift in Sources */,

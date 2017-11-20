@@ -1381,8 +1381,13 @@ NSDictionary *_classesForNames = nil;
 		// we only care for margins of block level elements
 		if (hasMargins)
 		{
-			self.paragraphStyle.paragraphSpacing = _margins.bottom;
-			self.paragraphStyle.paragraphSpacingBefore = _margins.top;
+            if ([self.name isEqualToString:@"ul"]) {
+                self.paragraphStyle.paragraphSpacing = 5;
+                self.paragraphStyle.paragraphSpacingBefore = 5;
+            } else {
+                self.paragraphStyle.paragraphSpacing = _margins.bottom;
+                self.paragraphStyle.paragraphSpacingBefore = _margins.top;
+            }
 			// we increase the inherited values for the time being
 			self.paragraphStyle.headIndent += _margins.left;
 			self.paragraphStyle.firstLineHeadIndent = self.paragraphStyle.headIndent;

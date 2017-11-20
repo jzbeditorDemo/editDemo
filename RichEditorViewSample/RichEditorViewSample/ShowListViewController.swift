@@ -22,12 +22,10 @@ class ShowListViewController: UIViewController,UITableViewDelegate,UITableViewDa
         self.view.addSubview(table)
         
         self.title = "native 排版"
-        
-//        DTTextAttachment.registerClass(BlockquoteAttachment.self, forTagName: "blockquote")
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -36,16 +34,20 @@ class ShowListViewController: UIViewController,UITableViewDelegate,UITableViewDa
             cell = DTAttributedTextCell(style: .default, reuseIdentifier: "displayCell")
             cell?.attributedTextContextView.shouldDrawLinks = true
             cell?.attributedTextContextView.shouldDrawImages = true
+            cell?.attributedTextContextView.edgeInsets = UIEdgeInsetsMake(15, 15, 15, 15)
             cell?.attributedTextContextView.delegate = self
             cell?.attributedTextContextView.backgroundColor = UIColor.white
         }
-        cell?.setHTMLString(contentHTMl ?? "", options: [DTDefaultFontSize:17])
+        let textColor = UIColor(red: 102/255.0, green: 102/255.0, blue: 102/255.0, alpha: 1.0)
+        cell?.setHTMLString(contentHTMl ?? "", options: [DTDefaultFontSize:17,DTDefaultTextColor:textColor])
         return cell!
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         let cell = DTAttributedTextCell(style: .default, reuseIdentifier: "displayCell")
-        cell.setHTMLString(contentHTMl ?? "", options: [DTDefaultFontSize:17])
+        cell.attributedTextContextView.edgeInsets = UIEdgeInsetsMake(15, 15, 15, 15)
+        let textColor = UIColor(red: 102/255.0, green: 102/255.0, blue: 102/255.0, alpha: 1.0)
+        cell.setHTMLString(contentHTMl ?? "", options: [DTDefaultFontSize:17,DTDefaultTextColor:textColor])
         let height =  cell.requiredRowHeight(in: tableView)
         print(height)
         return height
