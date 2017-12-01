@@ -4,6 +4,16 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>DTCoreText.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>4</integer>
+		</dict>
+		<key>DTFoundation.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>5</integer>
+		</dict>
 		<key>Pods-RichEditorViewSample.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -27,7 +37,32 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>3DBB3200F15B5C0F9899490AF530A874</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>3F26D0D1EE7F7CBCA01A8D2F4C058B87</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>75A2A39A969DFFC6CF054E0507437E87</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>A1C1C1773B7B90D5E80DFF7D81008E84</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A21E26325068B13B9C97AD1457DBDB3A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A56E3C46623EFCE7D5FD968CB088655C</key>
 		<dict>
 			<key>primary</key>
 			<true/>

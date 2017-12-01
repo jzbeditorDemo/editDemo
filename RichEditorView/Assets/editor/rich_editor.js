@@ -277,6 +277,7 @@ RE.setHeading = function(heading) {
     if (is_heading && isObj[0]) {
 //        var c = isObj[1].html();
 //        isObj[1].replaceWith(c);
+        
 //        RE.focus();
         document.execCommand('formatBlock', false, '<p>');
     } else {
@@ -798,28 +799,51 @@ RE.isNode = function (heading, mNode) {
 //}
 
 RE.removeEditorState = function(type) {
-    const states = ['blockquote', 'h3', 'unorderedList']
-    let arithmetic = i => {
-        RE.editorState
-        .filter(item => item == i)
-        .forEach(item => {
-                 switch(item) {
-                 case 'blockquote':
-                 RE.setBlockquote();
-                 break;
-                 case 'h3':
-                 RE.setHeading('h3');
-                 break;
-                 case 'unorderedList':
-                 RE.setUnorderedList();
-                 break;
-                 }
-                 });
+    for (var state = ['blockquote', 'h3', 'unorderedList'], n = [], i = 0, l = state.length; i < l; i++) {
+        if(state[i] != type) {
+            for (var loop = 0, len = RE.editorState.length; loop < len; loop++) {
+                if(state[i] == RE.editorState[loop]) {
+                    n.push(state[i]);
+                    switch(state[i]) {
+                      case 'blockquote':
+                            RE.setBlockquote();
+                            break;
+                      case 'h3':
+                            RE.setHeading('h3');
+                            break;
+                      case 'unorderedList':
+                            RE.setUnorderedList();
+                            break;
+                    }
+                }
+            }
+        }
     }
-    states
-    .filter(i => i != type)
-    .forEach(i => {arithmetic(i)})
 }
+
+// RE.removeEditorState = function(type) {
+//     const states = ['blockquote', 'h3', 'unorderedList']
+//     let arithmetic = i => {
+//         RE.editorState
+//         .filter(item => item == i)
+//         .forEach(item => {
+//                  switch(item) {
+//                  case 'blockquote':
+//                  RE.setBlockquote();
+//                  break;
+//                  case 'h3':
+//                  RE.setHeading('h3');
+//                  break;
+//                  case 'unorderedList':
+//                  RE.setUnorderedList();
+//                  break;
+//                  }
+//                  });
+//     }
+//     states
+//     .filter(i => i != type)
+//     .forEach(i => {arithmetic(i)})
+// }
 
 RE.displayTitle = function(display) {
    if (display) {
