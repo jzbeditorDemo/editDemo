@@ -392,10 +392,10 @@
 	void (^blockquoteBlock)(void) = ^
 	{
         _currentTag.paragraphStyle.headIndent += 10;
-        _currentTag.paragraphStyle.tailIndent += -10;
+//        _currentTag.paragraphStyle.tailIndent += -5;
         _currentTag.paragraphStyle.lineHeightMultiple = 1.8;
 		_currentTag.paragraphStyle.firstLineHeadIndent = _currentTag.paragraphStyle.headIndent;
-        _currentTag.paragraphStyle.paragraphSpacing = _defaultFontDescriptor.pointSize;
+        _currentTag.paragraphStyle.paragraphSpacing = 0;
 	};
 	
 	[_tagStartHandlers setObject:[blockquoteBlock copy] forKey:@"blockquote"];

@@ -434,6 +434,25 @@ extern unsigned int default_css_len;
 			[scanner scanUpToCharactersFromSet:tokenDelimiters intoString:NULL];
 		}
 	}
+    
+    //解析左边框
+    shortHand = [styles objectForKey:@"border-left"];
+    if (shortHand) {
+        [self parseBorderStyle:shortHand styles:styles];
+        [styles setObject:@(YES) forKey:@"border-left"];
+    }
+}
+
+-(void) parseBorderStyle:(NSString*)string styles:(NSMutableDictionary *)styles{
+    NSArray *parts = [string componentsSeparatedByString:@" "];
+    for (NSString *oneComponent in parts) {
+        if ([oneComponent hasSuffix:@"em"] || [oneComponent hasSuffix:@"px"] || [oneComponent hasSuffix:@"pt"]) {//边框宽度
+            [styles setObject:oneComponent forKey:@"border-width"];
+        }
+        if ([oneComponent.lowercaseString hasPrefix:@"rgb"] || [oneComponent hasPrefix:@"#"]) {//颜色
+            [styles setObject:oneComponent forKey:@"border-color"];
+        }
+    }
 }
 
 - (void)_addStyleRule:(NSString *)rule withSelector:(NSString*)selectors

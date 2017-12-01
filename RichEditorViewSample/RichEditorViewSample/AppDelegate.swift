@@ -16,6 +16,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        let html = "afjklfjl<blockquote 哈哈>中间</blockquote>结束<blockquote>中间2</blockquote>结束2"
+        var filter = RichTextFilter()
+        let res = filter.displayFilter(html: html)
+        print(res)
         return true
     }
 

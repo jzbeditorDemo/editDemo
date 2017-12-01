@@ -340,12 +340,13 @@ open class RichEditorView: UIView, UIScrollViewDelegate, UIWebViewDelegate, UIGe
     }
     
     public func insertLink(_ href: String, title: String) {
+        var hrefUrl = href
         if !href.hasPrefix("http") {
-            UIAlertView(title: "网址必须以http开头", message: nil, delegate: nil, cancelButtonTitle: "确定").show()
-        } else {
-            runJS("RE.prepareInsert();")
-            runJS("RE.insertLink('\(href.escaped)', '\(title.escaped)');")
+            hrefUrl = "http://" + href
+//            UIAlertView(title: "网址必须以http开头", message: nil, delegate: nil, cancelButtonTitle: "确定").show()
         }
+        runJS("RE.prepareInsert();")
+        runJS("RE.insertLink('\(hrefUrl.escaped)', '\(title.escaped)');")
         self.selectedHref = nil
         self.selectedLinkTitle = nil
     }
@@ -611,7 +612,7 @@ open class RichEditorView: UIView, UIScrollViewDelegate, UIWebViewDelegate, UIGe
             enableToolBar()
         }
         
-        let nameItems = name._split(separator: ",")
+        let nameItems = name.split(separator: ",")
         var itemsModified = [String]()
         for linkItem in nameItems {
             var updateItem = linkItem

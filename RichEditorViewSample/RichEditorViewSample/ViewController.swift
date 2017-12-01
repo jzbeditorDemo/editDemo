@@ -69,7 +69,9 @@ class ViewController: UIViewController {
     
     @objc func showtableList() {
         let tableVC = ShowListViewController()
-        tableVC.contentHTMl = editorView.html
+        var filter = RichTextFilter()
+        tableVC.contentHTMl = filter.displayFilter(html: editorView.html)
+        print(tableVC.contentHTMl)
         self.navigationController?.pushViewController(tableVC, animated: true)
     }
     
@@ -78,7 +80,10 @@ class ViewController: UIViewController {
     }
     
     private func customBody() {
-        self.initBody = "内容测试，爱过你公司房间看电视了蛋糕发生房间里上的f第三方<b>发生发多少 发多少是</b><span style=\"font-size: 14pt;\">‌</span><blockquote style=\"background: rgb(247,247,247);padding: 15px 10px;margin: 10px 10px 10px 0px;border-left: 6px solid rgb(180,180,180);\">发生发多少分化解拉夫废旧塑料发废旧塑料发是记录附件了首付暗精灵说服力放假了是否放假了是</blockquote><ul><li>哈哈哈哈哈</li><li>哥哥哥哥哥哥</li><li>哈哈哈哈哈哈哈哈哈</li></ul><h3>哈发生的纠纷老师的就看电视了房间快乐发生的发&nbsp;</h3><p><img src='http://pic42.nipic.com/20140617/7003505_213800766156_2.jpg' width=\"360\" height=\"340\"><br></p><p>飞机上了发飞机上了飞机了飞机上了发了</p><p>房间里上</p><p><br></p><p>飞机开始了</p><br></p><p>就是发生了飞机上了发发生 end</p><p>end。。。。。</p></p><br>"
+//        self.initBody = "内容测试，爱过你公司房间看电视了蛋糕发生房间里上的f第三方<b>发生发多少 发多少是</b><span style=\"font-size: 14pt;\">‌</span><blockquote style=\"background: rgb(247,247,247);padding: 15px 10px;margin: 10px 10px 10px 0px;border-left: 6px solid rgb(180,180,180);\">发生发多少分化解拉夫废旧塑料发废旧塑料发是记录附件了首付暗精灵说服力放假了是否放假了是</blockquote><ul><li>哈哈哈哈哈</li><li>哥哥哥哥哥哥</li><li>哈哈哈哈哈哈哈哈哈</li></ul><a href=\"http://www.baidu.com\">超链接测试</a><h3>哈发生的纠纷老师的就看电视了房间快乐发生的发&nbsp;</h3><p><img src='http://pic42.nipic.com/20140617/7003505_213800766156_2.jpg' width=\"360\" height=\"340\"><br></p><p>飞机上了发飞机上了飞机了飞机上了发了</p><p>房间里上</p><p><br></p><p>飞机开始了</p><br></p><p>就是发生了飞机上了发发生 end</p><p>end。。。。。</p></p><br>"
+//        self.initBody = "<blockquote>Sffsfffdsfsf废旧塑料发升级了飞机上刊登了房间SDK老费劲斯科拉房间时空裂缝就上课了</blockquote><p style=\"line-height:-10px;\"/><blockquote>测试第二行</blockquote><p style=\"line-height:-10px;\"/><blockquote>第三行测试</blockquote><p style=\"line-height:10px;\">dddd</p>"
+        self.initBody = "<p><ul><li>第一行第一行第一行第一行第一行</li><li>第二行第二行第二行第二行第二行</li><li>第三行第三行第三行第三行第三行</li></ul></p>"
+//        self.initBody = "afaf<ul><li>是的发多少分</li><li>分身乏术</li></ul>sfsf"
     }
     
     func after(_ time:Float,block:@escaping () -> Void) {
@@ -147,14 +152,14 @@ extension ViewController: RichEditorToolbarDelegate {
     //插入超链接弹框
     private func insertLinkDialog(_ title:String?,url:String?) {
         
-        var alertTitle = "插入超链接"
+        var alertTitle = "添加链接"
         if title != nil {
-            alertTitle = "更新超链接"
+            alertTitle = "更新链接"
         }
         
         let alertVC = UIAlertController(title: alertTitle, message: nil, preferredStyle: .alert)
         alertVC.addTextField { (textField) in
-            textField.placeholder = "URL（必输）"
+            textField.placeholder = "http://"
             if url != nil {
                 textField.text = url!
             }
